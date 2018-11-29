@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title_default %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  </head>
+  <body class="d-flex flex-column" style="min-height: 100vh; background-color: rgba(25,132,246,.9)">
+    <div class="mt-5 container">
+      <div class="flex-xl-nowrap">
+      <%= yield %>
+      <%= alerts %>
+    </div>
+  </div>
+  </body>
+</html>

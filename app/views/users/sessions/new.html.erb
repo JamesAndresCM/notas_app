@@ -1,0 +1,17 @@
+<div class="card col-lg-5 mt-4" style="margin: 0 auto">
+  <h2 class="login-style">Log in</h2>
+  <div class="card-body">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+      <%= f.input :email, placeholder: "user@domain.com", required: true %>
+      <%= f.input :password, required: true, input_html: { value: @user_password } %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= f.button :submit, "Log in" , class: 'btn btn-primary'%>
+    <% end %>
+  </div>
+<!-- 
+  <%= button_tag type: 'submit', class: "btn btn-sm btn-primary" do %>
+      Sign in with <i class="fa fa-facebook"></i>
+  <% end %>
+-->
+  <%= render "users/shared/links" %>
+</div>

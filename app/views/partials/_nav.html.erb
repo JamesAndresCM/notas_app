@@ -1,0 +1,32 @@
+<nav class="sticky-top navbar navbar-expand-lg navbar-dark nav-color">
+  <a class="navbar-brand" href="<%= root_path %>">
+    <img src="#" width="30" height="30">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+    </span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item">
+          <li class="nav-item">
+            <a class="navbar-brand"><%= image_tag(current_user.avatar.url, class:"img_nav_profile") %>
+              <span class="username-span" style="color: white;"><%= current_user.username %></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= edit_user_registration_path %>">Edit Account 
+              <i style="color: white" class="fa fa-pencil-square-o"></i>
+            </a>
+        </li>
+      </li>
+       <li class="nav-item">
+          <a class="nav-link" data-method="delete" href="<%= destroy_user_session_path %>">Logout 
+            <i class="fa fa-sign-out" style="color: red"></i>
+          </a>
+        </li>
+        <% end %>
+    </ul>
+  </div>
+</nav>

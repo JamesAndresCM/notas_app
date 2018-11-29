@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title_default %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="turbolinks-cache-control" content="no-preview">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  </head>
+
+  <body class="d-flex flex-column" style="min-height: 100vh">
+    <%= render "partials/nav" %>
+    <br>
+    <a id="button-scroll"></a>
+    <div class="container flex-fill">
+      <div class="flex-xl-nowrap">
+      <%= yield %>
+      <%= alerts %>
+    </div>
+  </div>
+  <br><br>
+  <%= render "partials/footer" %>
+  </body>
+</html>
