@@ -4,7 +4,7 @@
           <div class="col-md-9 animated fadeInDown">            
             <div class="contact-block">
               <div class="section-header">          
-                <h2 class="section-title">Contact <span>Us</span></h2>
+                <h2 class="section-title">Contáctanos!</h2>
                 <hr class="lines">
               </div>
                 <%= simple_form_for @contact, url: main_index_path, id: 'contactForm' do |f| %>
@@ -13,29 +13,29 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <%= f.input :name,label: false, class: "form-control", id: 'name', 
-                      placeholder: 'Your Name' %>
+                      placeholder: 'Tu Nombre' %>
                     </div>                                 
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <%= f.input :email, as: :email,label: false, class: "form-control", id: 'email', 
-                      placeholder: 'Please enter your email' %>
+                      placeholder: 'Tu Email' %>
                       <div class="help-block with-errors"></div>
                     </div> 
                   </div>
                   <div class="col-md-12">
                     <div class="form-group"> 
-                      <%= f.input :message, as: :text, :input_html => { :rows => 10} ,label: false,  class: "form-control", 
-                      placeholder: 'Your Message' %>
+                      <%= f.input :message, as: :text, input_html: { rows: 10 } ,label: false,  class: "form-control", 
+                      placeholder: 'Tu Mensaje' %>
                       <div class="help-block with-errors"></div>
                     </div>
                     <div style="display: none">
                         <%= f.input :nickname, :hint => 'Leave this field blank!' %>
                     </div>
                     <div class="submit-button text-center">
-                      <%= button_tag "Send Message", class: 'btn btn-common', 
+                      <%= button_tag "Enviar Mensaje", class: 'btn btn-common', 
                           data: { disable_with: "<i class='fa fa-refresh fa-spin'>
-                        </i> Please wait..."} %>
+                        </i> Espere Por Favor..."} %>
                     </div>
                   </div>
                 </div>            

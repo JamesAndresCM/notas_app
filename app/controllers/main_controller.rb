@@ -11,12 +11,12 @@ class MainController < ApplicationController
       @contact.request = request
         if @contact.deliver
           @contact = Main.new
-          redirect_to root_path, notice: "Thank you for your message. I'll get back to you soon!"
+          redirect_to root_path, notice: "Gracias por su mensaje. Pronto me pondré en contacto con usted"
         else
-          render :index, notice: "Error"
+          render :index, notice: "Error al enviar mail"
         end
     rescue ScriptError
-      redirect_to root_path, notice: 'Sorry, this message appears to be spam and was not delivered.'
+      redirect_to root_path, notice: 'Lo sentimos, este mensaje parece ser spam y no se entregó'
     end
   end
 end

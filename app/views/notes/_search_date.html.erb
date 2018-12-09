@@ -1,0 +1,24 @@
+<div id="search-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <legend> Busqueda de Nota Por fecha</legend>
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">Cerrar</span>
+        </button>
+      </div>
+      <br>
+      <div class="form-row center">
+        <div class="form-group">
+        <%= form_tag(result_date_notes_path, :method => "get", id: "search-form") do %>
+            <div class="form-group date" >
+              <%= text_field_tag :search, params[:search], required: true, style: 'border-radius: 5px; width: 300px', class: 'form-group' %>
+            <%= submit_tag "Buscar",class: 'btn-sm btn-primary',id: 'btn-search' %>
+            </div>
+        <% end %>
+      </div>
+      </div>
+    </div>
+</div>
+</div>
+

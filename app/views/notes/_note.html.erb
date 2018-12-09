@@ -1,0 +1,29 @@
+<div class="card mb-2">
+  <%= note.decorate.image_card('card-img-top') %>
+    <div class="card-body">
+      <h5 class="card-title"><%= note.title %></h5>
+      <p class="card-text scroll-description"><%= note.description %></p>
+       <div class="from-group">
+          <div class="btn-toolbar">
+            <% if can? :destroy, note %>
+            <div class="btn-group">
+              <%= note.decorate.delete_icon %>
+            </div>
+            <% end %>
+            <% if can? :edit, note %>
+              <div class="btn-group">
+                <button class="btn btn-sm"><%= note.decorate.edit_icon %></button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% if can? :read, note %>
+        <%= link_to 'Ver Nota', note , class: "btn btn-sm btn-block btn-primary mb-2 mt-2", remote: true%>
+        <% end %>
+    </div>
+    <div class="card-footer">
+      Fecha <%= note.decorate.humanize_date %>
+      <br><br>
+      <%= note.decorate.time_left %>
+    </div>
+</div>

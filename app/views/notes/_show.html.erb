@@ -1,0 +1,42 @@
+<div id="note-show" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <legend> <%= title %></legend>
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">Cerrar</span>
+        </button>
+        </div>
+        <div class="container py-3">
+            <div class="card shadow-card container center mt-4">
+              <div class="card-header style-header-card mb-3">
+                <div class="form-row">
+                  <div class="form-group col-md-9">
+                    <h4><%= note.note_title %></h4>
+                  </div>
+              </div>
+            </div>
+          <div class="row ">
+            <div class="col-md-4">
+              <%= note.image_card('card-img-top img-fluid mb-2') %>
+            </div>
+              <div class="col-md-8 px-3">
+                <div class="card-block px-3">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><%= note.category.name %></li>
+                      <li class="breadcrumb-item" aria-current="page"><%= note.humanize_date %></li>
+                    </ol>
+                  </nav>
+                    <%= image_tag(note.user_avatar, class: 'img-fluid img_nav_profile') %> 
+                    <span class="text-muted"><%= note.user_username %></span>
+                  <br><hr>
+                <p class="card-text mb-3"><%= note.description %></p>              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>

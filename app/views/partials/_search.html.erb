@@ -1,0 +1,6 @@
+<%= form_tag(search_title_notes_path, :method => "get", id: "search-form", class: 'margin-search') do %>
+    <div class="form-group date">
+      <%= text_field_tag :search_title, params[:search_title], placeholder: 'ingresa titulo de nota', style: 'border-radius: 5px; width: 300px', class: 'form-group' %>
+    <%= submit_tag "Buscar",class: 'btn-sm btn-primary',id: 'btn-search' %>
+    </div>
+<% end %>

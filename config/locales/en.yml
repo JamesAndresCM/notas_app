@@ -31,13 +31,15 @@
 
 en:
   activerecord:
-    attributes:
-      post:
-        statuses:
-          lost: "Lost"
-          return: "Return"
-          found: "Found"
-        categories:
-          object: "Object"
-          animal: "Animal"
-          person: "Person"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              confirmation: "las contraseñas no son iguales"
+              too_short: "contraseña muy corta (el minimo es %{count} caracteres)"
+            username:
+              blank: "no puede quedar vacío"
+            email:
+              blank: "no puede quedar vacío"
+      

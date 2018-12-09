@@ -1,0 +1,57 @@
+<div class="card shadow-card container center col-md-7 mt-4">
+   <div class="card-header style-header-card">
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <h4>Formulario de Nota</h4>
+        </div>
+        
+        <div class="form-group col-md-4">
+          <h6>Cantidad de Notas <span class="badge badge-info"><%=  current_user.notes.size %></span></h6>
+        </div>
+        
+      </div>
+    </div>
+  <br>
+  
+  <%= simple_form_for note, validate: true do |f| %>
+    <%= f.error_notification %>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.input :title, label: "Título"  %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :created_at, label: "Fecha" %>
+            <div class="input-group date" id="datetimepicker" data-target-input="nearest">
+              <%= f.text_field(:created_at, placeholder: 'dd-mm-yyyy hh:mm', value: note.decorate.value_datetime, class: "form-control datetimepicker-input", 
+                data: {target:"#datetimepicker"}) %>
+                <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <span class="fa fa-calendar"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= f.input :description,label: "Descripción",as: :text, input_html: { rows: 6 }, hint: 'máximo 300 caracteres'  %>          
+            <div class="form-group">
+              <%= f.input :category_id, label: "Categoría", as: :radio_buttons, collection: Category.all, 
+              item_wrapper_class: 'custom-control custom-control-inline' %>
+            </div>
+       
+          <div class="card mt-2 mb-2">
+            <div class="card-body row"">
+              <div class="center">
+                <%= note.decorate.img_note %>
+              </div>
+            </div>
+            <div class="custom-file mb-3 upload-img" id="customFile" lang="es">
+                <%= f.file_field :img, class:'form-control custom-file-input', id: 'note-upload' %>
+                  <label class="mb-2 custom-file-label">
+                   Imagen
+                  </label>
+              </div>
+              <%= f.hidden_field :img_cache %>
+          </div>
+        <%= f.button :submit, class: 'btn-block mb-4 btn btn-sm btn-primary' %>
+  <% end %>
+</div>

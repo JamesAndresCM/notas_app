@@ -1,0 +1,43 @@
+<nav id="sidebar">
+  <div class="sidebar-header" style="background-color: #3f51a5">
+    <h3><a href="<%= root_path %>">Inicio</a></h3>
+  </div>
+  <ul class="list-unstyled components" style="background-color: #3f51b5">
+    <p></p>
+    <% if current_user.admin? %>
+    <li>
+        <a href="<%= rails_admin.dashboard_path %>">Panel de Administración
+        <i class="fa fa-unlock"></i></a>
+    </li>
+    <% end %>
+    <li>
+        <a href="<%= root_path %>">Todas las Notas
+          <i class="fa fa-sticky-note"></i></a>
+    </li>
+    <li>
+        <a href="<%= today_notes_path %>">Notas para Hoy
+          <i class="fa fa-exclamation-triangle"></i></a>
+    </li>
+    <li>
+        <a href="<%= week_notes_path %>">Notas Semanales
+          <i class="fa fa-calendar"></i></a>
+    </li>
+    <li>
+        <a href="<%= search_date_notes_path %>" data-remote="true">Busquéda de notas
+          <i class="fa fa-search"></i></a>
+    </li>
+    <li>
+        <a href="<%= ocio_notes_path %>">Notas de Ocio
+          <i class="fa fa-check-circle"></i></a>
+    </li>
+    <li>
+        <a href="<%= work_notes_path %>">Notas de Trabajo
+          <i class="fa fa-tasks"></i></a>
+    </li>
+    <li>
+        <a href="<%= student_notes_path %>">Notas de Estudio
+          <i class="fa fa-book"></i></a>
+    </li>
+    </ul>
+    <%= render "partials/footer" %>
+</nav>

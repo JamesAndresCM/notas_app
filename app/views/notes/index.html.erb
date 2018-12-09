@@ -1,0 +1,16 @@
+<h2 class="shadow-style title-post"><%= title if defined?(title) %></h1>
+<% if note.blank? && controller.action_name == "index" %>
+ <%= render 'partials/jumbotron_index' %>
+<% elsif note.blank? %>
+  <%= render 'partials/not_found' %> 
+<% else %>
+  <div class="card-columns">
+    <% cache note do %>
+      <%= render note, cached: true %>
+    <% end %>
+  </div>
+  <br>
+  <div class="mt-2">
+    <%= will_paginate note, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+  </div>
+<% end %>

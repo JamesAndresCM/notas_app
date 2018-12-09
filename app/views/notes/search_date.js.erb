@@ -1,0 +1,53 @@
+$('<%= j render "notes/search_date", url: search_date_notes_url, title: "Search" %>').modal();
+
+
+$('body').on('shown.bs.modal', '.modal', function () {
+
+    var today = new Date();
+    
+    $('input[id="search"]').daterangepicker({
+        // mes actual
+        minDate: new Date(today.getFullYear(), today.getMonth()),
+        // mes actual + 2
+        maxDate: new Date(today.getFullYear(), today.getMonth()+2),
+        /*
+        pueden existir notas en un fds... por ende si mostrar fds en calendario
+        showWeekNumbers: false,
+          isInvalidDate: function(date) {
+            return (date.day() == 0 || date.day() == 6);
+        },*/
+        locale: {
+            firstDay:1,
+            format: 'DD/MM/YYYY',
+            "separator": " - ",
+            "applyLabel": "Aplicar",
+            "cancelLabel": "Cancelar",
+            "fromLabel": "DE",
+            "toLabel": "HASTA",
+            "customRangeLabel": "Custom",
+            "daysOfWeek": [
+                "Dom",
+                "Lun",
+                "Mar",
+                "Mie",
+                "Jue",
+                "Vie",
+                "Sáb"
+            ],
+            "monthNames": [
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Septiembre",
+                "Octubre",
+                "Noviembre",
+                "Diciembre"
+            ],
+        }
+      });
+});

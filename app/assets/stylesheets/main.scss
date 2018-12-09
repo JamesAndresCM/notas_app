@@ -112,8 +112,17 @@ a:not([href]):not([tabindex]):focus,
 a:not([href]):not([tabindex]):hover {
   color: #4676fa;
 }
+
+.card-title, h1,h2,h3,h4,h5{
+    font-size: 1.25rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
 .section {
-  padding: 70px 0;
+  padding: 70px 50px;
 }
 .section-header {
   color: #fff;
@@ -157,9 +166,6 @@ a:not([href]):not([tabindex]):hover {
   left: 29px;
 }
 
-/* ==========================================================================
-   Hero Area Style
-   ========================================================================== */
 #hero-area {
   
   background-size: cover;
@@ -211,9 +217,7 @@ a:not([href]):not([tabindex]):hover {
 #hero-area .banner_bottom_btn i:hover {
   color: #4676fa;
 }
-/* ==========================================================================
-   Slider Area
-   ========================================================================== */
+
 #slider-area {
   margin-top: -1px;
 }
@@ -283,8 +287,7 @@ a:not([href]):not([tabindex]):hover {
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(180deg, #3466ae 0%, #5390f1 100%)!important;
-    opacity: 0.8;
+    background: #3f51b5;
     z-index: 300;
   
 }
@@ -305,9 +308,7 @@ a:not([href]):not([tabindex]):hover {
     left: 0;
   
 }
-/* ==========================================================================
-   Counter Section Style
-   ========================================================================== */
+
 .counters {
   background: image-url("back/bg1.svg") fixed;
   position: relative;
@@ -332,9 +333,7 @@ a:not([href]):not([tabindex]):hover {
   font-size: 20px;
   color: #fff;
 }
-/* ==========================================================================
-   Testimonial Section Style
-   ========================================================================== */
+
 #testimonial {
   background: #e4f0f8;
 }
@@ -371,9 +370,7 @@ a:not([href]):not([tabindex]):hover {
   margin-top: 20px;
 }
 
-/* ==========================================================================
-   Blog 
-   ========================================================================== */
+
 #blog .blog-item-wrapper {
   background: #fff;
   border-radius: 0px;
@@ -448,9 +445,7 @@ a:not([href]):not([tabindex]):hover {
   line-height: 25px;
   margin-bottom: 20px;
 }
-/* ==========================================================================
-    Contact Us
-    ========================================================================== */
+
 .form-control {
   width: 100%;
   margin-bottom: 20px;
@@ -489,9 +484,7 @@ a:not([href]):not([tabindex]):hover {
 .list-unstyled li {
   color: #d9534f;
 }
-/* ==========================================================================
-   Footer Style
-   ========================================================================== */
+
 footer {
   background: #282e3c;
   padding: 60px 0px 30px;
@@ -608,4 +601,10 @@ footer {
 .pos{
   position: relative;
   z-index: 1000;
+}
+
+.last-found{
+  margin-bottom: 50px;
+  text-align: -webkit-center;
+  font-size: xx-large  
 }

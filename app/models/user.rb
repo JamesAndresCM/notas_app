@@ -5,10 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, omniauth_providers: [:facebook]
 
+  has_many :notes, dependent: :destroy, inverse_of: :user
+  
   mount_uploader :avatar, AvatarUploader
   extend FriendlyId
   friendly_id :username, use: :slugged
-
+  
   validates :email, presence: true,
             uniqueness: { allow_blank: true, case_sensitive: false },
             length: { maximum: 50 },
@@ -17,7 +19,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true, 
             length:  {in: 3..50}, 
-            format: { with: /\A[a-zA-ZnÑáéíóúÁÉÍÓÚ0-9_ ]+\z/, message: 'username is not valid' }
+            format: { with: /\A[a-zA-ZnÑáéíóúÁÉÍÓÚ0-9_ ]+\z/, message: 'nombre de usuario no valido' }
 
   validates_confirmation_of :password
 
@@ -68,6 +70,10 @@ class User < ApplicationRecord
     username_changed?
   end
 
+  def note_category(category) 
+    notes.joins(:category).where("categories.name = (?)","#{category}") 
+  end
+  
 private
   #si el email no existe se crea uno provider + uid
   def self.get_email(auth)

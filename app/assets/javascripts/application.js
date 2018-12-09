@@ -11,15 +11,25 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require rails-ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require gritter
-//= require check_image
+//= require moment
+//= require moment/es.js
+//= require tempusdominus-bootstrap-4.js
 //= require rails.validations
-//= require rails.validations.simple_form.bootstrap4
+//= require rails.validations.simple_form
+//= require validations.coffee
 //= require activestorage
+//= require jquery.mCustomScrollbar.concat.min
+//= require bootstrap-sweetalert
+//= require sweet-alert-confirm
+//= require rails-timeago-all
+//= require locales/jquery.timeago.es.js
+//= require daterangepicker
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
@@ -58,5 +68,15 @@ $(document).on('turbolinks:load', function() {
       }, 600);
       return false;
     })
+
+    $("#sidebar").mCustomScrollbar({
+                theme: "minimal",
+                scrollInertia:300
+      });
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar, #content').toggleClass('active');
+          $('.collapse.in').toggleClass('in');
+          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
 });
 

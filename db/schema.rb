@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_23_080818) do
+ActiveRecord::Schema.define(version: 2018_12_06_195124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
@@ -25,6 +32,21 @@ ActiveRecord::Schema.define(version: 2018_11_23_080818) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.string "description"
+    t.string "img"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["category_id"], name: "index_notes_on_category_id"
+    t.index ["slug"], name: "index_notes_on_slug", unique: true
+    t.index ["user_id", "title"], name: "index_notes_on_user_id_and_title", unique: true
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +75,6 @@ ActiveRecord::Schema.define(version: 2018_11_23_080818) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "notes", "categories"
+  add_foreign_key "notes", "users"
 end
