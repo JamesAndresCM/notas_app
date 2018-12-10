@@ -27,6 +27,8 @@ class NotesController < ApplicationController
   end
 
   def create
+    # FIX: cuando el user es administrador el helper current_user es nil..
+    note = current_user.notes.build(note_params)
     if note.save
       redirect_to notes_path, notice: 'Nota creada correctamente'
     else
@@ -100,8 +102,6 @@ class NotesController < ApplicationController
       paginate_note(current_user.notes)
     when "new"
       Note.new
-    when "create"
-      current_user.notes.build(note_params)
     when "ocio"
       paginate_note(current_user.note_category("ocio"))
     when "work"
