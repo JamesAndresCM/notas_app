@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
         if (!types.includes(input.files[0]['type'])) {
           $.gritter.add({ 
             title: 'Error avatar', 
-            text: input.files[0]['name'] + ' is not valid image'
+            text: input.files[0]['name'] + ' no es una imagen valida'
           }); 
           $(selector).val('');
         } else {
