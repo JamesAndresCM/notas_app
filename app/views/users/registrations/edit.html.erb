@@ -39,7 +39,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-8">
-          <%= f.input :current_password,label: "Contraseña Actual", hint: "Necesitas tu contraseña actual para los cambios", required: true %>
+          <%= f.input :current_password,label: "Contraseña Actual", hint: "Necesitas tu contraseña actual para los cambios", required: true unless current_user.provider? %>
         </div>
       </div>
       <%= f.button :submit, "Actualizar Cuenta" , class: 'btn-block btn btn-success'%>
