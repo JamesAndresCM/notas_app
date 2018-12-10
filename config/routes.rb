@@ -8,7 +8,7 @@
 #      rails_direct_uploads POST /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'auth/omniauth_callbacks'},
+  devise_for :users, controllers: { omniauth_callbacks: 'auth/omniauth_callbacks', registrations: "auth/registrations"},
               path: '', path_names: { sign_in: 'login',
                                       sign_out: 'logout',
                                       sign_up: 'register' }
