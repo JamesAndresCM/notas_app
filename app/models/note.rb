@@ -6,7 +6,7 @@ class Note < ApplicationRecord
   # relationships
   belongs_to :user, inverse_of: :notes
   belongs_to :category, inverse_of: :notes
-  validates_associated :user
+  #validates_associated :user
 
   # scopes default scope "is a bad practice" but, solo se esta empleando en
   # ordenar el objeto si se requiere saltar el default_scope en este caso se utiliza reorder en
@@ -85,8 +85,8 @@ class Note < ApplicationRecord
   def created_at_greater?
     if created_at.blank?
       errors.add(:base, "no puede estar vacio")
-    elsif created_at.to_date.year < 2018
-      errors.add(:base, "el año debe ser mayor o igual a 2018")
+    elsif created_at.to_time < Time.now
+      errors.add(:base, "error la fecha no puede ser menor al día actual")
     end
   end
 end
