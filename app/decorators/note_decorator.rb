@@ -83,8 +83,10 @@ class NoteDecorator < Draper::Decorator
       "Importante! nota para Mañana."
     when time_note == 0
       "Nota para Hoy!"
-    else
+    when time_note < 0
       "Expiró el tiempo."
+    else
+      nil
     end        
   end
 
